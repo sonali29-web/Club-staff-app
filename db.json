@@ -1,0 +1,323 @@
+{
+  "events": [
+    {
+      "id": "event1",
+      "_id": "event1",
+      "title": "Neon Night",
+      "startdatetime": "2026-10-14",
+      "enddatetime": "2026-10-21",
+      "time": "10 PM",
+      "bookingstart": "2026-10-10",
+      "bookingend": "2026-10-20",
+      "venue": "Neon Club, Pune",
+      "language": "English",
+      "genre": "EDM",
+      "category": "Club Night",
+      "clubid": "club1",
+      "organizerid": "org1",
+      "artists": [
+        "DJ Alex"
+      ],
+      "image": "https://media.istockphoto.com/id/547221094/photo/people-at-concert-party.webp?a=1&b=1&s=612x612&w=0&k=20&c=QMG8P3xldxk09TgKnQb814ow00gffHQLWYlnRZ5nUes=",
+      "status": "Active",
+      "onGroundAssignedUserIds": [
+        "seller1"
+      ],
+      "tableBookingEnabled": true,
+      "tableBookingLayoutId": "layout1",
+      "tickets": [
+        {
+          "_id": "ticket1",
+          "tickettype": "VIP",
+          "ticketprice": 1500,
+          "coverAmount": 500
+        },
+        {
+          "_id": "ticket2",
+          "tickettype": "Normal",
+          "ticketprice": 500,
+          "coverAmount": 100
+        }
+      ]
+    },
+    {
+      "id": "event2",
+      "_id": "event2",
+      "title": "Bollywood Night",
+      "startdatetime": "2026-10-10",
+      "enddatetime": "2026-10-23",
+      "time": "7 PM",
+      "bookingstart": "2026-10-12",
+      "bookingend": "2026-10-22",
+      "venue": "SkyLine Club, Thane",
+      "language": "Hindi",
+      "genre": "Bollywood",
+      "category": "Club Night",
+      "clubid": "club1",
+      "organizerid": "org1",
+      "artists": [
+        "DJ Rohan"
+      ],
+      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063",
+      "status": "Active",
+      "onGroundAssignedUserIds": [
+        "seller1"
+      ],
+      "tableBookingEnabled": true,
+      "tableBookingLayoutId": "layout1",
+      "tickets": [
+        {
+          "_id": "ticket3",
+          "tickettype": "VIP",
+          "ticketprice": 2000,
+          "coverAmount": 500
+        },
+        {
+          "_id": "ticket4",
+          "tickettype": "Normal",
+          "ticketprice": 700,
+          "coverAmount": 150
+        }
+      ]
+    },
+    {
+      "id": "event3",
+      "_id": "event3",
+      "title": "Retro Night",
+      "startdatetime": "2026-10-24",
+      "enddatetime": "2026-10-25",
+      "time": "10 PM",
+      "bookingstart": "2026-10-14",
+      "bookingend": "2026-10-24",
+      "venue": "Retro Club,Mumbai",
+      "language": "Hindi",
+      "genre": "Retro",
+      "category": "Theme Night",
+      "clubid": "club1",
+      "organizerid": "org1",
+      "artists": [
+        "DJ Sam"
+      ],
+      "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+      "status": "Upcoming",
+      "onGroundAssignedUserIds": [],
+      "tableBookingEnabled": false,
+      "tickets": [
+        {
+          "_id": "ticket5",
+          "tickettype": "VIP",
+          "ticketprice": 1200,
+          "coverAmount": 300
+        },
+        {
+          "_id": "ticket6",
+          "tickettype": "Normal",
+          "ticketprice": 400,
+          "coverAmount": 100
+        }
+      ]
+    },
+    {
+      "id": "event4",
+      "_id": "event4",
+      "title": "Club Friday",
+      "startdatetime": "2026-10-16",
+      "enddatetime": "2026-10-27",
+      "time": "7 PM",
+      "venue": "Eclipse Nightclub, Pune",
+      "bookingstart": "2026-10-16",
+      "bookingend": "2026-10-26",
+      "language": "English",
+      "genre": "House",
+      "category": "Club Night",
+      "clubid": "club2",
+      "organizerid": "org1",
+      "artists": [
+        "DJ Max"
+      ],
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819",
+      "status": "Active",
+      "onGroundAssignedUserIds": [
+        "seller2"
+      ],
+      "tableBookingEnabled": true,
+      "tableBookingLayoutId": "layout2",
+      "tickets": [
+        {
+          "_id": "ticket7",
+          "tickettype": "VIP",
+          "ticketprice": 1800,
+          "coverAmount": 400
+        },
+        {
+          "_id": "ticket8",
+          "tickettype": "Normal",
+          "ticketprice": 600,
+          "coverAmount": 100
+        }
+      ]
+    },
+    {
+      "id": "event5",
+      "_id": "event5",
+      "title": "Ladies Night",
+      "startdatetime": "2026-10-15",
+      "enddatetime": "2026-10-29",
+      "time": "7 PM",
+      "bookingstart": "2026-10-18",
+      "bookingend": "2026-10-28",
+      "venue": "Velvet Nightclub, Pune",
+      "language": "English",
+      "genre": "Pop",
+      "category": "Special Night",
+      "clubid": "club2",
+      "organizerid": "org1",
+      "artists": [
+        "DJ Mia"
+      ],
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3",
+      "status": "Active",
+      "onGroundAssignedUserIds": [],
+      "tableBookingEnabled": false,
+      "tickets": [
+        {
+          "_id": "ticket9",
+          "tickettype": "VIP",
+          "ticketprice": 1600,
+          "coverAmount": 400
+        },
+        {
+          "_id": "ticket10",
+          "tickettype": "Normal",
+          "ticketprice": 500,
+          "coverAmount": 100
+        }
+      ]
+    },
+    {
+      "id": "event6",
+      "_id": "event6",
+      "title": "Live Music Night",
+      "startdatetime": "2026-10-12",
+      "enddatetime": "2026-10-31",
+      "time": "9 PM",
+      "bookingstart": "2026-10-20",
+      "bookingend": "2026-10-30",
+      "venue": "Musica Club, Pune",
+      "language": "English",
+      "genre": "Live Music",
+      "category": "Live Event",
+      "clubid": "club1",
+      "organizerid": "org1",
+      "artists": [
+        "The Waves"
+      ],
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a",
+      "status": "Active",
+      "onGroundAssignedUserIds": [
+        "seller2"
+      ],
+      "tableBookingEnabled": true,
+      "tableBookingLayoutId": "layout1",
+      "tickets": [
+        {
+          "_id": "ticket11",
+          "tickettype": "VIP",
+          "ticketprice": 2200,
+          "coverAmount": 600
+        },
+        {
+          "_id": "ticket12",
+          "tickettype": "Normal",
+          "ticketprice": 800,
+          "coverAmount": 200
+        }
+      ]
+    },
+    {
+      "title": "Disco Night Party",
+      "clubid": "Club7",
+      "startdatetime": "2026-10-17T21:00",
+      "enddatetime": "2026-10-20T00:00",
+      "bookingstart": "2026-10-17T17:00",
+      "bookingend": "2026-10-20T20:00",
+      "time": "9 PM",
+      "image": "https://plus.unsplash.com/premium_photo-1683129651802-1c7ba429a137?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "language": "Hindi",
+      "genreid": "ADM",
+      "categoryid": "Disco Night",
+      "organizerid": "ORG7",
+      "artists": [
+        "DJ Prakash"
+      ],
+      "tableBookingEnabled": false,
+      "tableBookingLayoutId": "",
+      "tableBookingSlotKey": "",
+      "onGroundAssignedUserIds": [
+        "seller1"
+      ],
+      "tickets": [
+        {
+          "_id": "04a3059e-ab3c-4cae-bc5b-fa9175ab32df",
+          "tickettype": "Normal",
+          "ticketprice": 999,
+          "coverAmount": 301
+        }
+      ],
+      "id": "MLfqgZZLg2E"
+    }
+  ],
+  "sellers": [
+    {
+      "id": "seller1",
+      "name": "Rahul Patil",
+      "phone": "9876543210",
+      "role": "seller",
+      "status": "Active"
+    },
+    {
+      "id": "seller2",
+      "name": "Amit Shinde",
+      "phone": "9876543211",
+      "role": "seller",
+      "status": "Active"
+    }
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "event": "Neon Night",
+      "eventId": "event-101",
+      "sellerId": "seller1",
+      "sellerName": "Rahul Patil",
+      "sellerphone": "9876543210",
+      "saleType": "ticket",
+      "buyername": "Nitesh Patel",
+      "buyerphone": "9451235454",
+      "tickettype": "Ticket",
+      "noOfTicket": 2,
+      "ticketprice": 2000,
+      "coverAmount": 300,
+      "status": "Paid",
+      "createdAt": "14 Oct 2026"
+    },
+    {
+      "id": "1",
+      "event": "Neon Night",
+      "eventId": "event-101",
+      "sellerId": "seller2",
+      "sellerName": "Amit Shindel",
+      "sellerphone": "9876543211",
+      "saleType": "table",
+      "buyername": "priya patil",
+      "buyerphone": "9451235454",
+      "tickettype": "Ticket",
+      "noOfTicket": 2,
+      "ticketprice": 3000,
+      "coverAmount": 300,
+      "status": "Paid",
+      "createdAt": "14 Oct 2026"
+    }
+  ]
+
+}
