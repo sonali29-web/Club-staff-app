@@ -1,6 +1,6 @@
 import type { ClubEvent } from "../types/types";
 
-const API_URL = "http://localhost:3001";
+export const API_URL = "https://club-staff-app.onrender.com";
 
 // Fetch events from db.json API
 export async function getEvents(): Promise<ClubEvent[]> {

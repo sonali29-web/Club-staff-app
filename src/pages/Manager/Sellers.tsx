@@ -12,6 +12,7 @@ import {
 import { getSellers } from "../../services/storage";
 import type { Seller } from "../../types/types";
 import type { ClubEvent } from "../../types/types";
+import { API_URL } from "../../services/storage";
 
 export default function Sellers() {
   const [search, setSearch] = useState("");
@@ -19,7 +20,7 @@ export default function Sellers() {
   const [events, setEvents] = useState<ClubEvent[]>([]);
 
 useEffect(() => {
-  fetch("http://localhost:3001/events")
+  fetch(`${API_URL}/events`)
     .then((res) => res.json())
     .then((data) => setEvents(data))
     .catch((error) => console.error(error));

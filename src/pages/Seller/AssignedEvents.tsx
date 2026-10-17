@@ -3,6 +3,7 @@ import { CalendarDays } from "lucide-react";
 import { useEffect, useState } from "react";
 import AssignedEventCard from "../../components/SellerComp/AssignedEventCard";
 import type { ClubEvent } from "../../types/types";
+import { API_URL } from "../../services/storage";
 
 function AssignedEvents() {
   const [assignedEvents, setAssignedEvents] = useState<ClubEvent[]>([]);
@@ -12,7 +13,7 @@ function AssignedEvents() {
       const sellerId = localStorage.getItem("sellerId");
       if (!sellerId) return;
 
-      const response = await fetch("http://localhost:3001/events");
+      const response = await fetch(`${API_URL}/events`);
       const events = await response.json();
 
       const filteredEvents = events.filter((event: any) =>

@@ -9,6 +9,7 @@ Search
 } from "lucide-react";
 import { useState,useEffect,useMemo } from "react";
 import type { SaleRecord } from "../../types/types";
+import { API_URL } from "../../services/storage";
 
 
 const Reports = () => {
@@ -23,7 +24,7 @@ const Reports = () => {
 useEffect(() => {
   const fetchSales = async () => {
     try {
-      const response = await fetch("http://localhost:3001/sales");
+      const response = await fetch(`${API_URL}/sales`);
 
       if (!response.ok) {
         throw new Error(`API Error: ${response.status}`);

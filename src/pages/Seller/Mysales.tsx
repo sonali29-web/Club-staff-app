@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from "react";
 import { Ticket, Armchair, IndianRupee, Search, Eye } from "lucide-react";
 
 import type { SaleRecord } from "../../types/types";
+import { API_URL } from "../../services/storage";
 
 export default function MySales() {
   const [search, setSearch] = useState("");
@@ -16,7 +17,7 @@ export default function MySales() {
       if (!sellerId) return;
 
       const response = await fetch(
-        `http://localhost:3001/sales?sellerId=${sellerId}`,
+        `${API_URL}/sales?sellerId=${sellerId}`,
       );
 
       const data: SaleRecord[] = await response.json();
