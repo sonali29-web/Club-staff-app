@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Seller } from "../types/types";
 import clubNight from "../assets/clubnight.jpg";
-import { API_URL } from "../../services/storage";
+import { API_URL } from "../services/storage";
 
 import { ArrowLeft, ArrowRight, Phone, Ticket, Sparkles } from "lucide-react";
 
