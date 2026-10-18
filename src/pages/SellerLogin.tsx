@@ -1,16 +1,10 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Seller } from "../types/types";
 import clubNight from "../assets/clubnight.jpg";
+import { API_URL } from "../../services/storage";
 
-import {
-  ArrowLeft,
-  ArrowRight,
-  Phone,
-  Ticket,
-  Sparkles,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, Ticket, Sparkles } from "lucide-react";
 
 const SellerLogin: React.FC = () => {
   const navigate = useNavigate();
@@ -23,9 +17,7 @@ const SellerLogin: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   // STEP 1: Fetch seller and generate demo OTP
-  const handleSendOtp = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSendOtp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!/^\d{10}$/.test(phone)) {
@@ -36,9 +28,7 @@ const SellerLogin: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        "http://localhost:3001/sellers"
-      );
+      const response = await fetch(`${API_URL}/sellers`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch sellers");
@@ -46,45 +36,35 @@ const SellerLogin: React.FC = () => {
 
       const sellers: Seller[] = await response.json();
 
-      // Phone field must match your Seller type and db.json
-      const foundSeller = sellers.find(
-        (item) => item.phone === phone
-      );
+      const foundSeller = sellers.find((item) => item.phone === phone);
 
       if (!foundSeller) {
         alert("Seller not found. Please check your phone number.");
         return;
       }
 
-      // Generate a demo OTP (no SMS is sent)
-      const demoOtp = String(
-        Math.floor(100000 + Math.random() * 900000)
-      );
+      const demoOtp = String(Math.floor(100000 + Math.random() * 900000));
 
       setSeller(foundSeller);
       setGeneratedOtp(demoOtp);
       setOtp("");
       setOtpSent(true);
 
-      // Demo only: display OTP for testing
       alert(`Your demo OTP is: ${demoOtp}`);
     } catch (error) {
       console.error("Login error:", error);
       alert(
-        "Unable to connect to JSON Server. Please check that it is running."
+        "Unable to connect to JSON Server. Please check that it is running.",
       );
     } finally {
       setLoading(false);
     }
   };
 
-  // STEP 2: Verify OTP and navigate
-  const handleVerifyOtp = (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleVerifyOtp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (otp.length!==6) {
+    if (otp.length !== 6) {
       alert("Please enter a valid 6-digit OTP.");
       return;
     }
@@ -97,15 +77,12 @@ const SellerLogin: React.FC = () => {
     localStorage.setItem("sellerId", String(seller.id));
     localStorage.setItem("sellerName", seller.name);
 
-    // Clear OTP from component state
     setGeneratedOtp("");
     setOtp("");
 
-    // Update this path if your App.tsx uses another route
     navigate("/seller", { replace: true });
   };
 
-  // STEP 3: Return to phone entry
   const handleChangePhone = () => {
     setOtpSent(false);
     setOtp("");
@@ -116,7 +93,6 @@ const SellerLogin: React.FC = () => {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
-      {/* Background image */}
       <div
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -124,16 +100,12 @@ const SellerLogin: React.FC = () => {
         }}
       />
 
-      {/* Dark overlay */}
       <div className="fixed inset-0 bg-black/75" />
 
-      {/* Purple gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-950/70 via-black/70 to-indigo-950/70" />
+      <div className="fixed inset-0 bg-linear-to-br from-purple-950/70 via-black/70 to-indigo-950/70" />
 
-      {/* Main content */}
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
         <div className="w-full max-w-md">
-          {/* Back button */}
           <button
             type="button"
             onClick={() => navigate("/")}
@@ -143,17 +115,13 @@ const SellerLogin: React.FC = () => {
             Back to role selection
           </button>
 
-          {/* Login card */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-2xl sm:p-8">
-            {/* Header */}
             <div className="mb-7 text-center">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300 ring-1 ring-purple-400/20">
                 <Ticket size={26} />
               </div>
 
-              <h1 className="text-2xl font-bold text-white">
-                Seller Login
-              </h1>
+              <h1 className="text-2xl font-bold text-white">Seller Login</h1>
 
               <p className="mt-2 text-sm text-white/60">
                 Sign in to start selling on ground
@@ -161,11 +129,7 @@ const SellerLogin: React.FC = () => {
             </div>
 
             {!otpSent ? (
-              /* PHONE FORM */
-              <form
-                onSubmit={handleSendOtp}
-                className="space-y-5"
-              >
+              <form onSubmit={handleSendOtp} className="space-y-5">
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
@@ -192,11 +156,7 @@ const SellerLogin: React.FC = () => {
                       maxLength={10}
                       value={phone}
                       onChange={(e) =>
-                        setPhone(
-                          e.target.value
-                            .replace(/\D/g, "")
-                            .slice(0, 10)
-                        )
+                        setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
                       }
                       placeholder="9876543210"
                       required
@@ -205,8 +165,7 @@ const SellerLogin: React.FC = () => {
                   </div>
 
                   <p className="text-[11px] text-white/40">
-                    Enter the mobile number registered for your
-                    seller account.
+                    Enter the mobile number registered for your seller account.
                   </p>
                 </div>
 
@@ -226,19 +185,11 @@ const SellerLogin: React.FC = () => {
                 </button>
               </form>
             ) : (
-              /* OTP FORM */
-              <form
-                onSubmit={handleVerifyOtp}
-                className="space-y-5"
-              >
+              <form onSubmit={handleVerifyOtp} className="space-y-5">
                 <div className="text-center">
-                  <p className="text-sm text-white/60">
-                    Verification code for
-                  </p>
+                  <p className="text-sm text-white/60">Verification code for</p>
 
-                  <p className="mt-1 font-medium text-white">
-                    +91 {phone}
-                  </p>
+                  <p className="mt-1 font-medium text-white">+91 {phone}</p>
                 </div>
 
                 <div className="space-y-2">
@@ -257,11 +208,7 @@ const SellerLogin: React.FC = () => {
                     maxLength={6}
                     value={otp}
                     onChange={(e) =>
-                      setOtp(
-                        e.target.value
-                          .replace(/\D/g, "")
-                          .slice(0, 6)
-                      )
+                      setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))
                     }
                     placeholder="••••••"
                     required
@@ -287,12 +234,8 @@ const SellerLogin: React.FC = () => {
               </form>
             )}
 
-            {/* Footer */}
             <div className="mt-6 flex items-center justify-center gap-2 text-[11px] text-white/40">
-              <Sparkles
-                size={13}
-                className="text-purple-400"
-              />
+              <Sparkles size={13} className="text-purple-400" />
               Club Flow Seller Workspace
             </div>
           </div>
