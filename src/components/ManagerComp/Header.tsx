@@ -1,26 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  UserRound,
-  ChevronDown,
-  Sparkles,
-  LogOut,
-} from "lucide-react";
-
-
+import { UserRound, ChevronDown, Sparkles, LogOut } from "lucide-react";
 
 export default function Header() {
   const navigate = useNavigate();
 
-
-
   const [open, setOpen] = useState(false);
-
-
 
   const logOut = () => {
     navigate("/");
-    setOpen(false)
+    setOpen(false);
   };
 
   return (
@@ -37,7 +26,7 @@ export default function Header() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-19 items-center justify-between gap-3">
-
+          <a href="/" className="flex shrink-0 items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/15 shadow-lg backdrop-blur-md">
               <Sparkles size={25} className="text-purple-200" />
             </div>
@@ -50,12 +39,9 @@ export default function Header() {
                 On-ground sales
               </p>
             </div>
-
-
-
+          </a>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-
             <button className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 p-2 transition hover:bg-white/20 sm:px-3">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-fuchsia-400 to-purple-600 ring-2 ring-white/20">
                 <UserRound size={17} />
@@ -84,7 +70,6 @@ export default function Header() {
                 </button>
               </div>
             )}
-
           </div>
         </div>
       </div>
