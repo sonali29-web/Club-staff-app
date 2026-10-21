@@ -42,7 +42,7 @@ export default function Sidebar() {
 const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <aside className={`relative w-full md:shrink-0 md:rounded-2xl border md:border-white/10 bg-[#190d27]/95 p-3 text-white shadow-xl transition-all duration-300 ${
+    <aside className={`relative  md:shrink-0 md:rounded-2xl border md:border-white/10 bg-[#190d27]/95 p-3 text-white shadow-xl transition-all duration-300 ${
     isOpen ? "md:w-56" : "md:w-18"
   }`}>
       <div className="hidden md:block mb-5 border-b border-white/10 px-2 pb-4">

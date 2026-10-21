@@ -18,9 +18,7 @@ export default function ManagerLayout() {
           </div>
         </div>
       </MainContent>
-      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-white/10 bg-[#180d24] md:hidden">
-        <Sidebar />
-      </div>
+
 
     </>
   );

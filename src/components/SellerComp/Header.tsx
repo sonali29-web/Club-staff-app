@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { UserRound, ChevronDown, Sparkles,LogOut } from "lucide-react";
+import { Menu, X, UserRound, ChevronDown, Sparkles,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-
+const navItems = [
+  { name: "Events", path: "/seller" },
+  { name: "Mysales", path: "/seller/mysales" },
+];
 
 export default function Header() {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("Events");
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const [open,setopen]=useState(false)
 
 
@@ -76,12 +82,37 @@ export default function Header() {
                           </div>
                         )}
 
-
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle navigation"
+              className="rounded-xl border border-white/15 bg-white/10 p-2.5 md:hidden"
+            >
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
 
 
-
+        {menuOpen && (
+          <nav className="space-y-1 border-t border-white/10 py-3 md:hidden">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => {
+                  setActiveTab(item.name);
+                  setMenuOpen(false);
+                }}
+                className={`block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition ${
+                  activeTab === item.name
+                    ? "bg-white/20 text-white"
+                    : "text-purple-100 hover:bg-white/10"
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );
