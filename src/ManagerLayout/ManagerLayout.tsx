@@ -1,15 +1,27 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/ManagerComp/Header";
 import MainContent from "../components/ManagerComp/MainContent";
+import Sidebar from "../components/ManagerComp/Sidebar";
 
 export default function ManagerLayout() {
   return (
-    <div className="min-h-screen bg-[#100719]">
-      <Header />
+    <>
+          <Header />
 
       <MainContent>
-        <Outlet />
+        <div className="flex items-stretch gap-4">
+          <div className="hidden md:flex md:self-stretch">
+            <Sidebar />
+          </div>
+          <div className="min-w-0 flex-1">
+            <Outlet />
+          </div>
+        </div>
       </MainContent>
-    </div>
+      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-white/10 bg-[#180d24] md:hidden">
+        <Sidebar />
+      </div>
+
+    </>
   );
 }

@@ -36,10 +36,10 @@ export default function MySales() {
 
   const tablesSold = sales.filter((sale) => sale.saleType === "table").length;
 
-  const totalCoverAmount = sales.reduce(
+  const totalAmount = sales.reduce(
     (total, sale) =>
       sale.saleType === "ticket"
-        ? total + (sale.coverAmount ?? 0) * (sale.noOfTicket ?? 0)
+        ? total + (sale.coverAmount ?? 0) +(sale.ticketprice ?? 0)* (sale.noOfTicket ?? 0)
         : total,
     0,
   );
@@ -59,7 +59,7 @@ export default function MySales() {
     },
     {
       title: "Total Amount",
-      value: totalCoverAmount,
+      value: totalAmount,
       icon: IndianRupee,
       color: "bg-green-100 text-green-600",
     },

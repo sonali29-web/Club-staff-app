@@ -61,7 +61,7 @@ useEffect(() => {
     }, [search, typeFilter, statusFilter]);
 
 
-const { ticketsSold, tablesSold, totalCoverAmount, salescount } =
+const { ticketsSold, tablesSold, totalAmount, salescount } =
   useMemo(() => {
     const ticketsSold = sales.reduce(
       (total, sale) =>
@@ -75,11 +75,11 @@ const { ticketsSold, tablesSold, totalCoverAmount, salescount } =
       (sale) => sale.saleType === "table"
     ).length;
 
-    const totalCoverAmount = sales.reduce(
+    const totalAmount = sales.reduce(
       (total, sale) =>
         sale.saleType === "ticket"
           ? total +
-            (sale.coverAmount ?? 0) * (sale.noOfTicket ?? 0)
+            (sale.coverAmount ?? 0)+(sale.ticketprice ?? 0)  * (sale.noOfTicket ?? 0)
           : total,
       0
     );
@@ -89,7 +89,7 @@ const { ticketsSold, tablesSold, totalCoverAmount, salescount } =
     return {
       ticketsSold,
       tablesSold,
-      totalCoverAmount,
+      totalAmount,
       salescount,
     };
   }, [sales]);
@@ -131,7 +131,7 @@ const { ticketsSold, tablesSold, totalCoverAmount, salescount } =
           </p>
 
           <h2 className="mt-1 text-2xl font-bold text-gray-900">
-            {totalCoverAmount}
+            {totalAmount}
           </h2>
         </div>
 

@@ -145,7 +145,7 @@ export default function Events() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search events..."
-            className="w-full rounded-xl border border-white-500 py-2.5 pl-10 pr-3 text-sm outline-none transition focus:border-purple-400 focus:ring-2 focus:ring-purple-100"
+            className="w-full rounded-xl border border-gray-500 py-2.5 pl-10 pr-3 text-sm outline-none transition  focus:ring-2 focus:ring-purple-400"
           />
         </div>
 

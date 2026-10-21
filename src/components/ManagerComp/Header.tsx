@@ -1,33 +1,22 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
-  Menu,
-  X,
-  Search,
   UserRound,
   ChevronDown,
   Sparkles,
   LogOut,
 } from "lucide-react";
 
-const navItems = [
-  { name: "Events", path: "/manager" },
-  { name: "Sellers", path: "/manager/sellers" },
-  { name: "Reports", path: "/manager/reports" },
-];
+
 
 export default function Header() {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+
+
   const [open, setOpen] = useState(false);
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    setMenuOpen(false);
-  };
+
 
   const logOut = () => {
     navigate("/");
@@ -48,10 +37,7 @@ export default function Header() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-19 items-center justify-between gap-3">
-          <button
-            onClick={() => handleNavigation("/manager")}
-            className="flex shrink-0 items-center gap-3 text-left"
-          >
+
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/15 shadow-lg backdrop-blur-md">
               <Sparkles size={25} className="text-purple-200" />
             </div>
@@ -64,36 +50,12 @@ export default function Header() {
                 On-ground sales
               </p>
             </div>
-          </button>
 
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => {
-              const isActive =location.pathname === item.path;;
 
-              return (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavigation(item.path)}
-                  className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? "bg-white/20 text-white shadow-inner ring-1 ring-white/20"
-                      : "text-purple-100 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              );
-            })}
-          </nav>
+
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              aria-label="Toggle search"
-              className="rounded-xl border border-white/15 bg-white/10 p-2.5 transition hover:bg-white/20"
-            >
-              <Search size={19} />
-            </button>
+
             <button className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 p-2 transition hover:bg-white/20 sm:px-3">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-fuchsia-400 to-purple-600 ring-2 ring-white/20">
                 <UserRound size={17} />
@@ -123,54 +85,8 @@ export default function Header() {
               </div>
             )}
 
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation"
-              aria-expanded={menuOpen}
-              className="rounded-xl border border-white/15 bg-white/10 p-2.5 md:hidden"
-            >
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
           </div>
         </div>
-
-        {searchOpen && (
-          <div className="border-t border-white/10 py-3">
-            <div className="flex items-center gap-2 rounded-xl border border-white/15 bg-black/20 px-3">
-              <Search size={18} className="shrink-0 text-purple-200" />
-
-              <input
-                type="search"
-                placeholder="Search events, sellers..."
-                className="w-full bg-transparent py-3 text-sm text-white-100 outline-none placeholder:text-purple-200/70"
-              />
-            </div>
-          </div>
-        )}
-
-        {menuOpen && (
-          <nav className="space-y-1 border-t border-white/10 py-3 md:hidden">
-            {navItems.map((item) => {
-              const isActive =
-                location.pathname === item.path ||
-                location.pathname.startsWith(`${item.path}/`);
-
-              return (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavigation(item.path)}
-                  className={`block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition ${
-                    isActive
-                      ? "bg-white/20 text-white"
-                      : "text-purple-100 hover:bg-white/10"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              );
-            })}
-          </nav>
-        )}
       </div>
     </header>
   );
